@@ -18,7 +18,7 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
 
-    <title>Работа мечты! Вакансии.</title>
+    <title>Работа мечты! Кадидаты.</title>
 </head>
 <body>
 <div class="container">
@@ -33,11 +33,11 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="post: ${posts}">
-                <td th:text="${post.id}"/>
-                <td th:text="${post.name}"/>
-                <td th:text="${post.description}"/>
-                <td th:text="${post.created}"/>
+            <tr th:each="candidate: ${candidates}">
+                <td th:text="${candidate.id}"/>
+                <td th:text="${candidate.name}"/>
+                <td th:text="${candidate.description}"/>
+                <td th:text="${candidate.created}"/>
             </tr>
             </tbody>
         </table>
