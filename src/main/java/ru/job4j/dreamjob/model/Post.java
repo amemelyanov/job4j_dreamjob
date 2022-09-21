@@ -1,13 +1,13 @@
 package ru.job4j.dreamjob.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Post {
     private int id;
     private String name;
     private String description;
-    private Date created = new Date(System.currentTimeMillis());
+    private LocalDateTime created = LocalDateTime.now();
 
     public Post() { }
 
@@ -41,7 +41,7 @@ public class Post {
         this.description = description;
     }
 
-    public Date getCreated() {
+    public LocalDateTime getCreated() {
         return created;
     }
 
