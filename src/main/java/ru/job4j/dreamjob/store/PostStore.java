@@ -4,6 +4,7 @@ import ru.job4j.dreamjob.model.Post;
 
 import java.util.Collection;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -32,5 +33,13 @@ public class PostStore {
     public void add(Post post) {
         int ids = id.getAndIncrement();
         posts.put(ids, new Post(ids, post.getName(), post.getDescription()));
+    }
+
+    public void update(Post post) {
+        posts.put(post.getId(), post);
+    }
+
+    public Optional<Post> findById(int id) {
+        return Optional.ofNullable(posts.get(id));
     }
 }
