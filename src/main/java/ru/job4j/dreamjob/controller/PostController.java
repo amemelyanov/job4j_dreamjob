@@ -11,8 +11,6 @@ import ru.job4j.dreamjob.model.Post;
 import ru.job4j.dreamjob.service.CityService;
 import ru.job4j.dreamjob.service.PostService;
 
-import java.util.NoSuchElementException;
-
 @Controller
 public class PostController {
 
@@ -56,8 +54,7 @@ public class PostController {
     @GetMapping("/formUpdatePost/{postId}")
     public String formUpdatePost(Model model, @PathVariable("postId") int id) {
         model.addAttribute("cities", cityService.getAllCities());
-        model.addAttribute("post", postService.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Вакансия не найдена")));
+        model.addAttribute("post", postService.findById(id));
         return "updatePost";
     }
 }
