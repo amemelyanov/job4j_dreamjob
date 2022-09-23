@@ -28,7 +28,8 @@ public class PostStore {
 
     public void add(Post post) {
         int ids = id.getAndIncrement();
-        posts.put(ids, new Post(ids, post.getName(), post.getDescription()));
+        post.setId(ids);
+        posts.put(ids, post);
     }
 
     public void update(Post post) {
