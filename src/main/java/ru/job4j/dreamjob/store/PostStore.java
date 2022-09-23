@@ -32,7 +32,7 @@ public class PostStore {
     }
 
     public void update(Post post) {
-        posts.put(post.getId(), post);
+        posts.replace(post.getId(), post);
     }
 
     public Optional<Post> findById(int id) {

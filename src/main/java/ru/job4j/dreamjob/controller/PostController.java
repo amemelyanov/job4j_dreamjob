@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import ru.job4j.dreamjob.model.Post;
 import ru.job4j.dreamjob.service.PostService;
 
+import java.util.NoSuchElementException;
+
 @Controller
 public class PostController {
 
@@ -45,7 +47,7 @@ public class PostController {
     @GetMapping("/formUpdatePost/{postId}")
     public String formUpdatePost(Model model, @PathVariable("postId") int id) {
         model.addAttribute("post", postService.findById(id)
-                .orElse(new Post(0, "Вакансия не найдена", "")));
+                .orElseThrow(() -> new NoSuchElementException("Вакансия не найдена")));
         return "updatePost";
     }
 }
