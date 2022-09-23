@@ -29,11 +29,11 @@ public class CandidateStore {
     public void add(Candidate candidate) {
         int ids = id.getAndIncrement();
         candidate.setId(ids);
-        candidates.replace(ids, candidate);
+        candidates.put(ids, candidate);
     }
 
     public void update(Candidate candidate) {
-        candidates.put(candidate.getId(), candidate);
+        candidates.replace(candidate.getId(), candidate);
     }
 
     public Optional<Candidate> findById(int id) {
