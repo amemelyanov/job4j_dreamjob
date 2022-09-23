@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Repository
 public class PostStore {
 
-    private AtomicInteger id = new AtomicInteger(4);
+    private final AtomicInteger id = new AtomicInteger(4);
 
     private final Map<Integer, Post> posts = new ConcurrentHashMap<>();
 
