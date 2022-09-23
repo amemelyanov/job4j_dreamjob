@@ -28,7 +28,8 @@ public class CandidateStore {
 
     public void add(Candidate candidate) {
         int ids = id.getAndIncrement();
-        candidates.put(ids, new Candidate(ids, candidate.getName(), candidate.getDescription()));
+        candidate.setId(ids);
+        candidates.replace(ids, candidate);
     }
 
     public void update(Candidate candidate) {

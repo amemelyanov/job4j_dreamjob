@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import ru.job4j.dreamjob.model.Candidate;
 import ru.job4j.dreamjob.service.CandidateService;
 
+import java.util.NoSuchElementException;
+
 @Controller
 public class CandidateController {
 
@@ -45,7 +47,7 @@ public class CandidateController {
     @GetMapping("/formUpdateCandidate/{candidateId}")
     public String formUpdateCandidate(Model model, @PathVariable("candidateId") int id) {
         model.addAttribute("candidate", candidateService.findById(id)
-                .orElse(new Candidate(0, "Кандидат не найден", "")));
+                .orElseThrow(() -> new NoSuchElementException("Кандидат не найден")));
         return "updateCandidate";
     }
 }
