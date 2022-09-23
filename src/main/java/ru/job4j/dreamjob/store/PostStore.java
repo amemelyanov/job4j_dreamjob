@@ -17,9 +17,9 @@ public class PostStore {
     private final Map<Integer, Post> posts = new ConcurrentHashMap<>();
 
     private PostStore() {
-        posts.put(1, new Post(1, "Junior Java Job", "Description1"));
-        posts.put(2, new Post(2, "Middle Java Job", "Description2"));
-        posts.put(3, new Post(3, "Senior Java Job", "Description3"));
+        posts.put(1, new Post(1, "Junior Java Job", "Description1", true));
+        posts.put(2, new Post(2, "Middle Java Job", "Description2", true));
+        posts.put(3, new Post(3, "Senior Java Job", "Description3", true));
     }
 
     public Collection<Post> findAll() {
