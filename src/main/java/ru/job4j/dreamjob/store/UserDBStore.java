@@ -23,6 +23,7 @@ public class UserDBStore {
     }
 
     public Optional<User> add(User user) {
+        Optional<User> resultUser = Optional.empty();
         try (Connection cn = pool.getConnection();
              PreparedStatement ps = cn.prepareStatement(INSERT_INTO,
                      PreparedStatement.RETURN_GENERATED_KEYS)
@@ -33,11 +34,12 @@ public class UserDBStore {
             try (ResultSet id = ps.getGeneratedKeys()) {
                 if (id.next()) {
                     user.setId(id.getInt(1));
+                    resultUser = Optional.of(user);
                 }
             }
         } catch (Exception e) {
             LOG.error("Исключение в методе add() класс UserDBStore", e);
         }
-        return Optional.ofNullable(user);
+        return resultUser;
     }
 }
