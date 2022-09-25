@@ -15,6 +15,12 @@ create table if not exists candidate (
 	photo bytea
 );
 
+create table if not exists users (
+  id serial primary key,
+  email varchar(50) unique,
+  password text
+);
+
 
 
 
