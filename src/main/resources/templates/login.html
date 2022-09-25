@@ -22,13 +22,13 @@
     <div class="row">
         <div class="card" style="width: 100%">
             <div class="card-header">
-                Регистрация
+                Авторизация
             </div>
             <div class="card-body">
                 <div th:if="${fail}" class="alert alert-danger" role="alert">
-                    Такой пользователь существует!
+                    Логин или пароль введены неверно!
                 </div>
-                <form th:action="@{/registration}" method="POST">
+                <form th:action="@{/login}" method="POST">
                     <div class="form-group">
                         <label>Почта</label>
                         <input type="text" class="form-control" name="email">
@@ -37,7 +37,7 @@
                         <label>Пароль</label>
                         <input type="text" class="form-control" name="password">
                     </div>
-                    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                    <button type="submit" class="btn btn-primary">Войти</button>
                 </form>
             </div>
         </div>
