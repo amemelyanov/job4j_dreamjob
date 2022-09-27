@@ -6,6 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 
 public final class UserUtil {
 
+    private UserUtil() {
+        throw new AssertionError();
+    }
+
     public static User getSessionUser(HttpServletRequest req) {
         User user = (User) req.getSession().getAttribute("user");
         if (user == null) {
